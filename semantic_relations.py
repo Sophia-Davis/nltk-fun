@@ -83,14 +83,14 @@ if __name__ == "__main__":
     
     #uncomment to show graph information
     #print(dot.source)
-    dot.render('test-output/tree-{}{}.pdf'.format(name, sense), view=False)
+    #dot.render('test-output/tree-{}{}.pdf'.format(name, sense), view=False)
     dot.render(gv_fname, view=False)
    
 
     gv_process = sbp.Popen(['unflatten', '-l', flatten_deg, gv_fname], stdout=sbp.PIPE)
     sbp.run(['dot', '-Tpng', '-o', png_fname], stdin=gv_process.stdout)
     
-
+    
     #Command line prompt to make more aesthetically pleasing
     #  unflatten -l 6 test.gv | dot -Tpng -o wide2.png 
     
